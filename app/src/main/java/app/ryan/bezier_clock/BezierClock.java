@@ -11,6 +11,7 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.os.SystemClock;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import java.util.Calendar;
@@ -71,7 +72,8 @@ public class BezierClock extends View {
     }
 
     public void refresh(BezierDigit digit) {
-        invalidate((int)digit.transX, (int)digit.transY, (int)(digit.transX + digit.w), (int)(digit.transY + digit.h));
+        invalidate();
+        //invalidate((int)digit.transX, (int)digit.transY, (int)(digit.transX + digit.w), (int)(digit.transY + digit.h));
     }
 
     @Override
@@ -129,7 +131,7 @@ public class BezierClock extends View {
     private void registerReceiver() {
         final IntentFilter filter = new IntentFilter();
 
-        filter.addAction(Intent.ACTION_TIME_TICK);
+        //filter.addAction(Intent.ACTION_TIME_TICK);
         filter.addAction(Intent.ACTION_TIME_CHANGED);
         filter.addAction(Intent.ACTION_TIMEZONE_CHANGED);
 
